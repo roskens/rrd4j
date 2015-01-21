@@ -3,8 +3,11 @@ package org.rrd4j.inspector;
 import javax.swing.*;
 import java.awt.*;
 import java.util.Vector;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 class Util {
+    private static final Logger LOG = LoggerFactory.getLogger(Util.class);
     static void centerOnScreen(Window window) {
         Toolkit t = Toolkit.getDefaultToolkit();
         Dimension screenSize = t.getScreenSize();

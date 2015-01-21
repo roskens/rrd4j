@@ -1,8 +1,11 @@
 package org.rrd4j.graph;
 
 import java.awt.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 class HSpan extends Span {
+    private static final Logger LOG = LoggerFactory.getLogger(HSpan.class);
     final double start;
     final double end;
 

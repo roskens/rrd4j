@@ -7,8 +7,11 @@ import org.rrd4j.data.DataProcessor;
 import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 class PrintText extends CommentText {
+    private static final Logger LOG = LoggerFactory.getLogger(PrintText.class);
     static final String UNIT_MARKER = "([^%]?)%(s|S)";
     static final Pattern UNIT_PATTERN = Pattern.compile(UNIT_MARKER);
 

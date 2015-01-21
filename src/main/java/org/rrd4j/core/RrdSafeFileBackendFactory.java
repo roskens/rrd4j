@@ -1,11 +1,14 @@
 package org.rrd4j.core;
 
 import java.io.IOException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Factory class which creates actual {@link RrdSafeFileBackend} objects.
  */
 public class RrdSafeFileBackendFactory extends RrdRandomAccessFileBackendFactory {
+    private static final Logger LOG = LoggerFactory.getLogger(RrdSafeFileBackendFactory.class);
     /**
      * Default time (in milliseconds) this backend will wait for a file lock.
      */

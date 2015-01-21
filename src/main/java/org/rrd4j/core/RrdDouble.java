@@ -1,8 +1,12 @@
 package org.rrd4j.core;
 
 import java.io.IOException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 class RrdDouble extends RrdPrimitive {
+    private static final Logger LOG = LoggerFactory.getLogger(RrdDouble.class);
+    
     private double cache;
     private boolean cached = false;
 

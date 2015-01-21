@@ -12,6 +12,8 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 import java.util.TimeZone;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Class which should be used to define new Rrd4j graph. Once constructed and populated with data
@@ -42,6 +44,7 @@ import java.util.TimeZone;
  * the string to disable the auto justification.
  */
 public class RrdGraphDef implements RrdGraphConstants {
+    private static final Logger LOG = LoggerFactory.getLogger(RrdGraphDef.class);
     boolean poolUsed = false; // ok
     boolean antiAliasing = false; // ok
     boolean textAntiAliasing = false; // ok

@@ -5,8 +5,11 @@ import java.awt.Paint;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 class TimeAxis implements RrdGraphConstants {
+    private static final Logger LOG = LoggerFactory.getLogger(TimeAxis.class);
     private static final TimeAxisSetting[] tickSettings = {
         new TimeAxisSetting(0, SECOND, 30, MINUTE, 5, MINUTE, 5, 0, "HH:mm"),
         new TimeAxisSetting(2, MINUTE, 1, MINUTE, 5, MINUTE, 5, 0, "HH:mm"),

@@ -10,6 +10,8 @@ import java.io.IOException;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Class used as a base class for various XML template related classes. Class provides
@@ -20,6 +22,7 @@ import java.util.regex.Pattern;
  * values are collected. You have to extend this class to do something more useful.<p>
  */
 public abstract class XmlTemplate {
+    private static final Logger LOG = LoggerFactory.getLogger(XmlTemplate.class);
     private static final String PATTERN_STRING = "\\$\\{(\\w+)\\}";
     private static final Pattern PATTERN = Pattern.compile(PATTERN_STRING);
 

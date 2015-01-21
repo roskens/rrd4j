@@ -1,6 +1,8 @@
 package org.rrd4j.core;
 
 import java.io.IOException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Base implementation class for all backend classes. Each Round Robin Database object
@@ -43,6 +45,7 @@ import java.io.IOException;
  * </ul>
  */
 public abstract class RrdBackend {
+    private static final Logger LOG = LoggerFactory.getLogger(RrdBackend.class);
     private static boolean instanceCreated = false;
     private final String path;
 

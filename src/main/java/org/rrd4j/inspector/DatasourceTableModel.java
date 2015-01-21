@@ -5,8 +5,11 @@ import org.rrd4j.core.RrdDb;
 
 import javax.swing.table.AbstractTableModel;
 import java.io.File;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 class DatasourceTableModel extends AbstractTableModel {
+    private static final Logger LOG = LoggerFactory.getLogger(DatasourceTableModel.class);
     private static final Object[] DESCRIPTIONS = {
             "name", "type", "heartbeat", "min value",
             "max value", "last value", "accum. value", "NaN seconds"

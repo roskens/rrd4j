@@ -8,8 +8,11 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 class EditArchiveDialog extends JDialog {
+    private static final Logger LOG = LoggerFactory.getLogger(EditArchiveDialog.class);
     private static final int FIELD_SIZE = 20;
     private static final String TITLE_NEW = "New archive";
     private static final String TITLE_EDIT = "Edit archive";

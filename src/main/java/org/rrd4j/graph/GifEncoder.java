@@ -5,8 +5,11 @@ import java.awt.image.PixelGrabber;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Vector;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 class GifEncoder {
+    private static final Logger LOG = LoggerFactory.getLogger(GifEncoder.class);
     private Dimension dispDim = new Dimension(0, 0);
     private GifColorTable colorTable;
     private int bgIndex = 0;

@@ -2,6 +2,8 @@ package org.rrd4j.core;
 
 import java.io.IOException;
 import java.util.concurrent.ScheduledExecutorService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Factory class which creates actual {@link RrdNioBackend} objects. This is the default factory since
@@ -13,6 +15,7 @@ import java.util.concurrent.ScheduledExecutorService;
  * appropriately may lead to the thread pool hanging around longer than necessary, which in turn may cause memory leaks.
  */
 public class RrdNioBackendFactory extends RrdFileBackendFactory {
+    private static final Logger LOG = LoggerFactory.getLogger(RrdNioBackendFactory.class);
     /**
      * Period in seconds between consecutive synchronizations when
      * sync-mode is set to SYNC_BACKGROUND. By default in-memory cache will be

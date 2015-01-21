@@ -4,6 +4,8 @@ import org.rrd4j.ConsolFun;
 
 import java.io.*;
 import java.util.Date;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * <p>Main class used to create and manipulate round robin databases (RRDs). Use this class to perform
@@ -41,6 +43,8 @@ import java.util.Date;
  * @see RrdBackendFactory
  */
 public class RrdDb implements RrdUpdater {
+    private static final Logger LOG = LoggerFactory.getLogger(RrdDb.class);
+
     /**
      * Prefix to identify external XML file source used in various RrdDb constructors.
      */

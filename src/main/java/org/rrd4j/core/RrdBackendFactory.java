@@ -3,6 +3,8 @@ package org.rrd4j.core;
 import java.io.IOException;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Base (abstract) backend factory class which holds references to all concrete
@@ -44,6 +46,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * See javadoc for {@link RrdBackend} to find out how to create your custom backends.
  */
 public abstract class RrdBackendFactory {
+    private static final Logger LOG = LoggerFactory.getLogger(RrdBackendFactory.class);
     private static final Map<String, RrdBackendFactory> factories = new ConcurrentHashMap<String, RrdBackendFactory>();
     private static RrdBackendFactory defaultFactory;
 

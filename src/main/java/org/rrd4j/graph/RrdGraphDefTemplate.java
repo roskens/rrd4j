@@ -9,6 +9,8 @@ import org.xml.sax.InputSource;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Class used to create an arbitrary number of RrdGraphDef (graph definition) objects
@@ -245,6 +247,7 @@ import java.io.IOException;
  * definition object gets created relatively slowly, but it will be created much faster next time.
  */
 public class RrdGraphDefTemplate extends XmlTemplate implements RrdGraphConstants {
+    private static final Logger LOG = LoggerFactory.getLogger(RrdGraphDefTemplate.class);
     static final Color BLIND_COLOR = new Color(0, 0, 0, 0);
 
     private RrdGraphDef rrdGraphDef;

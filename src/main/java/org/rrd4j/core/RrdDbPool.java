@@ -1,6 +1,8 @@
 package org.rrd4j.core;
 
 import java.io.IOException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * This class should be used to synchronize access to RRD files
@@ -10,6 +12,8 @@ import java.io.IOException;
  * The abstract wrapper for different implementations of the pools.
  */
 public abstract class RrdDbPool {
+    private static final Logger LOG = LoggerFactory.getLogger(RrdDbPool.class);
+
     private static class RrdDbPoolSingletonHolder {
         static final RrdDbPool instance = new RrdDbPoolNew();
     }

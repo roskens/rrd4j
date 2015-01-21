@@ -3,6 +3,8 @@ package org.rrd4j.core;
 import java.io.IOException;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Factory class which creates actual {@link RrdMemoryBackend} objects. Rrd4j's support
@@ -15,6 +17,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * memory, you'll have to call {@link #delete(java.lang.String) delete(path)} method of this class.</p>
  */
 public class RrdMemoryBackendFactory extends RrdBackendFactory {
+    private static final Logger LOG = LoggerFactory.getLogger(RrdMemoryBackendFactory.class);
     protected final Map<String, RrdMemoryBackend> backends = new ConcurrentHashMap<String, RrdMemoryBackend>();
 
     /**

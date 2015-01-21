@@ -3,8 +3,11 @@ package org.rrd4j.core;
 import org.rrd4j.ConsolFun;
 
 import java.io.IOException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 abstract class DataImporter {
+    private static final Logger LOG = LoggerFactory.getLogger(DataImporter.class);
 
     // header
     abstract String getVersion() throws IOException;

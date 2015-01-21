@@ -3,8 +3,11 @@ package org.rrd4j.graph;
 import org.rrd4j.data.DataProcessor;
 
 import java.awt.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 class Stack extends SourcedPlotElement {
+    private static final Logger LOG = LoggerFactory.getLogger(Stack.class);
     private final SourcedPlotElement parent;
 
     Stack(SourcedPlotElement parent, String srcName, Paint color) {

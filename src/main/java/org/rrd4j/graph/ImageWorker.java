@@ -18,8 +18,11 @@ import java.io.IOException;
 import java.io.OutputStream;
 
 import javax.imageio.ImageIO;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 class ImageWorker {
+    private static final Logger LOG = LoggerFactory.getLogger(ImageWorker.class);
     private static final String DUMMY_TEXT = "Dummy";
 
     static final int IMG_BUFFER_CAPACITY = 10000; // bytes

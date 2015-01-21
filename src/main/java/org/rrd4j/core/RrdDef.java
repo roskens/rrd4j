@@ -8,6 +8,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * <p>Class to represent definition of new Round Robin Database (RRD).
@@ -34,6 +36,8 @@ import java.util.*;
  * @author Sasa Markovic
  */
 public class RrdDef {
+    private static final Logger LOG = LoggerFactory.getLogger(RrdDef.class);
+    
     /**
      * Default RRD step to be used if not specified in constructor (300 seconds).
      */

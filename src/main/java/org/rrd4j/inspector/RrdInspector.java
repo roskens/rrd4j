@@ -17,11 +17,14 @@ import javax.swing.tree.TreeSelectionModel;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.File;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Utility application (swing) to analyze, change and plot content of Rrd4j RRD files.
  */
 public class RrdInspector extends JFrame {
+    private static final Logger LOG = LoggerFactory.getLogger(RrdInspector.class);
     static final boolean SHOULD_CREATE_BACKUPS = true;
     static final String TITLE = "RRD File Inspector";
     static final boolean SHOULD_FIX_ARCHIVED_VALUES = false;

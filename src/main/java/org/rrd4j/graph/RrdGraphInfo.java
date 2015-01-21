@@ -2,12 +2,15 @@ package org.rrd4j.graph;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Class to represent successfully created Rrd4j graph. Objects of this class are created by method
  * {@link RrdGraph#getRrdGraphInfo()}.
  */
 public class RrdGraphInfo {
+    private static final Logger LOG = LoggerFactory.getLogger(RrdGraphInfo.class);
     String filename;
     int width, height;
     byte[] bytes;

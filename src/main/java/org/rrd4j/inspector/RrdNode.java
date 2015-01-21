@@ -4,8 +4,11 @@ import org.rrd4j.core.*;
 
 import java.io.File;
 import java.io.IOException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 class RrdNode {
+    private static final Logger LOG = LoggerFactory.getLogger(RrdNode.class);
     private int dsIndex = -1, arcIndex = -1;
     private final String label;
 

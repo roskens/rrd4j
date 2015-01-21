@@ -5,6 +5,8 @@ import java.io.IOException;
 import com.sleepycat.je.Database;
 import com.sleepycat.je.DatabaseEntry;
 import com.sleepycat.je.DatabaseException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Backend which is used to store RRD data to ordinary disk files
@@ -13,6 +15,7 @@ import com.sleepycat.je.DatabaseException;
  * @author <a href="mailto:m.bogaert@memenco.com">Mathias Bogaert</a>
  */
 public class RrdBerkeleyDbBackend extends RrdByteArrayBackend {
+    private static final Logger LOG = LoggerFactory.getLogger(RrdBerkeleyDbBackend.class);
     private final Database rrdDatabase;
     private volatile boolean dirty = false;
 

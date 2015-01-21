@@ -7,6 +7,8 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Thread pool used by {@link RrdNioBackend} instances to periodically sync the mapped file to disk. Note that instances
@@ -20,6 +22,7 @@ import java.util.concurrent.atomic.AtomicReference;
  */
 public final class RrdSyncThreadPool
 {
+    private static final Logger LOG = LoggerFactory.getLogger(RrdSyncThreadPool.class);
     /**
      * The reference to the shutdown hook, or null.
      */

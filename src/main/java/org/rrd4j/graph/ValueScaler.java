@@ -1,6 +1,10 @@
 package org.rrd4j.graph;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 class ValueScaler {
+    private static final Logger LOG = LoggerFactory.getLogger(ValueScaler.class);
     static final String UNIT_UNKNOWN = "?";
     static final String UNIT_SYMBOLS[] = {
             "a", "f", "p", "n", "u", "m", " ", "k", "M", "G", "T", "P", "E"

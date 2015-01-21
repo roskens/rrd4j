@@ -4,8 +4,11 @@ import java.awt.Font;
 import java.awt.Paint;
 
 import org.rrd4j.core.Util;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 class ValueAxis implements RrdGraphConstants {
+    private static final Logger LOG = LoggerFactory.getLogger(ValueAxis.class);
     private static final YLabel[] ylabels = {
         new YLabel(0.1, 1, 2, 5, 10),
         new YLabel(0.2, 1, 5, 10, 20),

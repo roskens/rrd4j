@@ -1,6 +1,10 @@
 package org.rrd4j.graph;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 class TimeAxisSetting {
+    private static final Logger LOG = LoggerFactory.getLogger(TimeAxisSetting.class);
     final long secPerPix;
     final int minorUnit, minorUnitCount, majorUnit, majorUnitCount;
     final int labelUnit, labelUnitCount, labelSpan;

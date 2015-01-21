@@ -1,6 +1,8 @@
 package org.rrd4j.core;
 
 import org.rrd4j.DsType;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Class to represent single data source definition within the RRD.
@@ -19,6 +21,8 @@ import org.rrd4j.DsType;
  * @author Sasa Markovic
  */
 public class DsDef {
+    private static final Logger LOG = LoggerFactory.getLogger(DsDef.class);
+    
     static final String FORCE_ZEROS_FOR_NANS_SUFFIX = "!";
 
     private final String dsName;

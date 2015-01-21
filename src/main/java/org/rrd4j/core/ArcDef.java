@@ -1,6 +1,8 @@
 package org.rrd4j.core;
 
 import org.rrd4j.ConsolFun;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Class to represent single archive definition within the RRD.
@@ -19,6 +21,7 @@ import org.rrd4j.ConsolFun;
  * @author Sasa Markovic
  */
 public class ArcDef {
+    private static final Logger LOG = LoggerFactory.getLogger(ArcDef.class);
     private final ConsolFun consolFun;
     private final double xff;
     private final int steps;

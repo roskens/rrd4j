@@ -1,8 +1,11 @@
 package org.rrd4j.core;
 
 import java.io.IOException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 class RrdDoubleMatrix extends RrdPrimitive {
+    private static final Logger LOG = LoggerFactory.getLogger(RrdDoubleMatrix.class);
     private final int rows;
     private final int columns;
 

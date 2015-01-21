@@ -7,8 +7,11 @@ import org.rrd4j.core.RrdDb;
 import javax.swing.table.AbstractTableModel;
 import java.io.File;
 import java.util.Date;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 class DataTableModel extends AbstractTableModel {
+    private static final Logger LOG = LoggerFactory.getLogger(DataTableModel.class);
     private static final String[] COLUMN_NAMES = {"timestamp", "date", "value"};
 
     private File file;

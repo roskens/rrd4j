@@ -5,11 +5,14 @@ import java.io.File;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.util.Stack;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Extremely simple utility class used to create XML documents.
  */
 public class XmlWriter {
+    private static final Logger LOG = LoggerFactory.getLogger(XmlWriter.class);
     static final String INDENT_STR = "   ";
 
     private PrintWriter writer;

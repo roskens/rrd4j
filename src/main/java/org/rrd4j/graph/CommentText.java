@@ -3,8 +3,11 @@ package org.rrd4j.graph;
 import java.util.Locale;
 
 import org.rrd4j.data.DataProcessor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 class CommentText implements RrdGraphConstants {
+    private static final Logger LOG = LoggerFactory.getLogger(CommentText.class);
     private final String text;        // original text
 
     String resolvedText;    // resolved text

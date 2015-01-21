@@ -3,6 +3,8 @@ package org.rrd4j.core;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * This class should be used to synchronize access to RRD files
@@ -10,6 +12,7 @@ import java.util.Map;
  * too many RRD files at the same time (thus avoiding operating system limits).
  */
 class RrdDbPoolOld extends RrdDbPool {
+    private static final Logger LOG = LoggerFactory.getLogger(RrdDbPoolOld.class);
 
     private int capacity = INITIAL_CAPACITY;
     private Map<String, RrdEntry> rrdMap = new HashMap<String, RrdEntry>(INITIAL_CAPACITY);

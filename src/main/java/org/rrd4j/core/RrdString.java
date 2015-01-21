@@ -1,8 +1,11 @@
 package org.rrd4j.core;
 
 import java.io.IOException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 class RrdString extends RrdPrimitive {
+    private static final Logger LOG = LoggerFactory.getLogger(RrdString.class);
     private String cache;
 
     RrdString(RrdUpdater updater, boolean isConstant) throws IOException {

@@ -5,8 +5,11 @@ import org.rrd4j.core.RrdDb;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 import java.io.File;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 class MainTreeModel extends DefaultTreeModel {
+    private static final Logger LOG = LoggerFactory.getLogger(MainTreeModel.class);
     private static final DefaultMutableTreeNode INVALID_NODE =
             new DefaultMutableTreeNode("No valid RRD file specified");
 

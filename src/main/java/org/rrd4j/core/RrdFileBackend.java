@@ -2,6 +2,8 @@ package org.rrd4j.core;
 
 import java.io.File;
 import java.io.IOException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * An abstract backend which is used to store RRD data to ordinary files on the disk.
@@ -10,6 +12,8 @@ import java.io.IOException;
  * in the code for instanceof.
  */
 public abstract class RrdFileBackend extends RrdBackend {
+    private static final Logger LOG = LoggerFactory.getLogger(RrdFileBackend.class);
+    
     /**
      * Read/write file status.
      */

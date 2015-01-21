@@ -1,8 +1,12 @@
 package org.rrd4j.core;
 
 import java.io.IOException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 class RrdDoubleArray extends RrdPrimitive {
+    private static final Logger LOG = LoggerFactory.getLogger(RrdDoubleArray.class);
+    
     private int length;
 
     RrdDoubleArray(RrdUpdater updater, int length) throws IOException {

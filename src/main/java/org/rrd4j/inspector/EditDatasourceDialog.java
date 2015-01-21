@@ -9,8 +9,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowEvent;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 class EditDatasourceDialog extends JDialog {
+    private static final Logger LOG = LoggerFactory.getLogger(EditDatasourceDialog.class);
     private static final int FIELD_SIZE = 20;
     private static final String TITLE_NEW = "New datasource";
     private static final String TITLE_EDIT = "Edit datasource";

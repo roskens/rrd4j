@@ -1,8 +1,11 @@
 package org.rrd4j.core;
 
 import java.io.IOException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 abstract class RrdPrimitive {
+    private static final Logger LOG = LoggerFactory.getLogger(RrdPrimitive.class);
     static final int STRING_LENGTH = 20;
     static final int RRD_INT = 0, RRD_LONG = 1, RRD_DOUBLE = 2, RRD_STRING = 3;
     static final int[] RRD_PRIM_SIZES = {4, 8, 8, 2 * STRING_LENGTH};

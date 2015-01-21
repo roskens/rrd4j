@@ -1,6 +1,10 @@
 package org.rrd4j.graph;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 class Mapper {
+    private static final Logger LOG = LoggerFactory.getLogger(Mapper.class);
     private RrdGraphDef gdef;
     private ImageParameters im;
     private double pixieX, pixieY;

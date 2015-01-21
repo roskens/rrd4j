@@ -3,8 +3,11 @@ package org.rrd4j.graph;
 import org.rrd4j.core.Util;
 
 import java.awt.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 class ValueAxisMrtg implements RrdGraphConstants {
+    private static final Logger LOG = LoggerFactory.getLogger(ValueAxisMrtg.class);
     private ImageParameters im;
     private ImageWorker worker;
     private RrdGraphDef gdef;

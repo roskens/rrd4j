@@ -3,6 +3,8 @@ package org.rrd4j.core;
 import org.rrd4j.DsType;
 
 import java.io.IOException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Class to represent single datasource within RRD. Each datasource object holds the
@@ -15,6 +17,8 @@ import java.io.IOException;
  * @author Sasa Markovic
  */
 public class Datasource implements RrdUpdater {
+    private static final Logger LOG = LoggerFactory.getLogger(Datasource.class);
+    
     private static final double MAX_32_BIT = Math.pow(2, 32);
     private static final double MAX_64_BIT = Math.pow(2, 64);
 

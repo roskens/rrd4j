@@ -1,12 +1,15 @@
 package org.rrd4j.core;
 
 import java.io.IOException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Factory class which creates actual {@link RrdRandomAccessFileBackend} objects. This was the default
  * backend factory in Rrd4j before 1.4.0 release.
  */
 public class RrdRandomAccessFileBackendFactory extends RrdFileBackendFactory {
+    private static final Logger LOG = LoggerFactory.getLogger(RrdRandomAccessFileBackendFactory.class);
     /**
      * Creates RrdFileBackend object for the given file path.
      *

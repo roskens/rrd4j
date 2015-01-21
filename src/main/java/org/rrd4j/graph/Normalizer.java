@@ -3,8 +3,11 @@ package org.rrd4j.graph;
 import org.rrd4j.core.Util;
 
 import java.util.Arrays;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 class Normalizer {
+    private static final Logger LOG = LoggerFactory.getLogger(Normalizer.class);
     final private double[] timestamps;
     final int count;
     final double step;

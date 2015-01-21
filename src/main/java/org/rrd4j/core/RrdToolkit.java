@@ -11,6 +11,8 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Class used to perform various complex operations on RRD files. Use an instance of the
@@ -30,6 +32,7 @@ import java.util.List;
  * (files which are currently in use).</p>
  */
 public class RrdToolkit {
+    private static final Logger LOG = LoggerFactory.getLogger(RrdToolkit.class);
     /**
      * Creates a new RRD file with one more datasource in it. RRD file is created based on the
      * existing one (the original RRD file is not modified at all). All data from

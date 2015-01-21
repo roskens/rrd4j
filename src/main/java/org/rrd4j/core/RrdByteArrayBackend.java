@@ -1,11 +1,14 @@
 package org.rrd4j.core;
 
 import java.io.IOException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Abstract byte array based backend.
  */
 public abstract class RrdByteArrayBackend extends RrdBackend {
+    private static final Logger LOG = LoggerFactory.getLogger(RrdByteArrayBackend.class);
     protected byte[] buffer;
 
     protected RrdByteArrayBackend(String path) {

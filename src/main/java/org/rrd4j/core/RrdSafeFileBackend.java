@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.nio.channels.FileChannel;
 import java.nio.channels.FileLock;
 import java.util.concurrent.atomic.AtomicLong;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Backend which is used to store RRD data to ordinary files on the disk, using locking. This backend
@@ -13,6 +15,7 @@ import java.util.concurrent.atomic.AtomicLong;
  * since it does not use fast java.nio.* package (it's still based on the RandomAccessFile class).
  */
 public class RrdSafeFileBackend extends RrdRandomAccessFileBackend {
+    private static final Logger LOG = LoggerFactory.getLogger(RrdSafeFileBackend.class);
     private static final Counters counters = new Counters();
 
     private FileLock lock;

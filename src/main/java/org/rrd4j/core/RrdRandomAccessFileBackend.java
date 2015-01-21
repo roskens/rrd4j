@@ -2,12 +2,15 @@ package org.rrd4j.core;
 
 import java.io.IOException;
 import java.io.RandomAccessFile;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Backend which is used to store RRD data to ordinary files on the disk. This was the
  * default factory before 1.4.0 version. This backend is based on the RandomAccessFile class (java.io.* package).
  */
 public class RrdRandomAccessFileBackend extends  RrdFileBackend {
+    private static final Logger LOG = LoggerFactory.getLogger(RrdRandomAccessFileBackend.class);
     /**
      * Random access file handle.
      */

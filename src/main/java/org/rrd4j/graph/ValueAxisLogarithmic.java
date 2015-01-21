@@ -3,8 +3,11 @@ package org.rrd4j.graph;
 import org.rrd4j.core.Util;
 
 import java.awt.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 class ValueAxisLogarithmic implements RrdGraphConstants {
+    private static final Logger LOG = LoggerFactory.getLogger(ValueAxisLogarithmic.class);
     private static final double[][] yloglab = {
         {1e9, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
         {1e3, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},

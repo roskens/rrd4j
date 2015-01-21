@@ -4,8 +4,11 @@ import org.rrd4j.core.jrrd.RRDatabase;
 import org.rrd4j.ConsolFun;
 
 import java.io.IOException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 class RrdToolReader extends DataImporter {
+    private static final Logger LOG = LoggerFactory.getLogger(RrdToolReader.class);
     private RRDatabase rrd;
 
     RrdToolReader(String rrdPath) throws IOException {

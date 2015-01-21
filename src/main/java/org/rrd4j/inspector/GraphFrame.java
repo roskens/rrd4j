@@ -14,8 +14,11 @@ import java.io.IOException;
 import java.io.File;
 import java.io.RandomAccessFile;
 import java.util.Date;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 class GraphFrame extends JFrame {
+    private static final Logger LOG = LoggerFactory.getLogger(GraphFrame.class);
     private static final Color COLOR = Color.RED;
     private static final int WIDTH = 400, HEIGHT = 240;
     private int deltaWidth = 0, deltaHeight = 0;

@@ -12,11 +12,14 @@ import javax.swing.ImageIcon;
 
 import org.rrd4j.core.Util;
 import org.rrd4j.data.DataProcessor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Class which actually creates Rrd4j graphs (does the hard work).
  */
 public class RrdGraph implements RrdGraphConstants {
+    private static final Logger LOG = LoggerFactory.getLogger(RrdGraph.class);
     private static final double[] SENSIBLE_VALUES = {
         1000.0, 900.0, 800.0, 750.0, 700.0, 600.0, 500.0, 400.0, 300.0, 250.0, 200.0, 125.0, 100.0,
         90.0, 80.0, 75.0, 70.0, 60.0, 50.0, 40.0, 30.0, 25.0, 20.0, 10.0,

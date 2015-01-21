@@ -2,8 +2,11 @@ package org.rrd4j.graph;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 class LegendComposer implements RrdGraphConstants {
+    private static final Logger LOG = LoggerFactory.getLogger(LegendComposer.class);
     private final RrdGraphDef gdef;
     private final ImageWorker worker;
     private int legX, legY;

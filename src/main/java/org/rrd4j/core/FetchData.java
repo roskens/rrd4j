@@ -8,6 +8,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Class used to represent data fetched from the RRD.
@@ -32,6 +34,8 @@ import java.io.OutputStream;
  * the values returned with {@link #getTimestamps() getTimestamps()} method.<p>
  */
 public class FetchData {
+    private static final Logger LOG = LoggerFactory.getLogger(FetchData.class);
+    
     // anything fuuny will do
     private static final String RPN_SOURCE_NAME = "WHERE THE SPEECHLES UNITE IN A SILENT ACCORD";
 

@@ -6,8 +6,11 @@ import org.rrd4j.core.RrdDb;
 import javax.swing.table.AbstractTableModel;
 import java.io.File;
 import java.util.Date;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 class HeaderTableModel extends AbstractTableModel {
+    private static final Logger LOG = LoggerFactory.getLogger(HeaderTableModel.class);
     private static final Object[] DESCRIPTIONS = {
             "path", "signature", "step", "last timestamp",
             "datasources", "archives", "size"

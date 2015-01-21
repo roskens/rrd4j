@@ -7,6 +7,8 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.atomic.AtomicInteger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * This class should be used to synchronize access to RRD files
@@ -16,6 +18,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * It's much more scalable than the previous pool
  */
 class RrdDbPoolNew extends RrdDbPool {
+    private static final Logger LOG = LoggerFactory.getLogger(RrdDbPoolNew.class);
     static private class RrdEntry {
         volatile RrdDb rrdDb = null;
         final AtomicInteger count = new AtomicInteger(0);

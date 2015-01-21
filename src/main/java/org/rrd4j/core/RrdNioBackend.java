@@ -5,6 +5,8 @@ import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import sun.nio.ch.DirectBuffer;
 
@@ -13,6 +15,7 @@ import sun.nio.ch.DirectBuffer;
  * using java.nio.* package. This is the default backend engine.
  */
 public class RrdNioBackend extends RrdRandomAccessFileBackend {
+    private static final Logger LOG = LoggerFactory.getLogger(RrdNioBackend.class);
     private MappedByteBuffer byteBuffer;
 
     private final Runnable syncRunnable = new Runnable() {

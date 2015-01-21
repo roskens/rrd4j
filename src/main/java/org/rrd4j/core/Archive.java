@@ -3,6 +3,8 @@ package org.rrd4j.core;
 import org.rrd4j.ConsolFun;
 
 import java.io.IOException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Class to represent single RRD archive in a RRD with its internal state.
@@ -16,6 +18,7 @@ import java.io.IOException;
  * @author Sasa Markovic
  */
 public class Archive implements RrdUpdater {
+    private static final Logger LOG = LoggerFactory.getLogger(Archive.class);
     private final RrdDb parentDb;
 
     // definition

@@ -1,6 +1,8 @@
 package org.rrd4j.core;
 
 import java.io.IOException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Class to represent RRD header. Header information is mainly static (once set, it
@@ -13,6 +15,8 @@ import java.io.IOException;
  * @author Sasa Markovic*
  */
 public class Header implements RrdUpdater {
+    private static final Logger LOG = LoggerFactory.getLogger(Header.class);
+    
     static final int SIGNATURE_LENGTH = 5;
     static final String SIGNATURE = "RRD4J";
 

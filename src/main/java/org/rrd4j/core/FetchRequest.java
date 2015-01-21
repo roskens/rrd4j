@@ -4,6 +4,8 @@ import org.rrd4j.ConsolFun;
 
 import java.io.IOException;
 import java.util.Set;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Class to represent fetch request. For the complete explanation of all
@@ -17,6 +19,8 @@ import java.util.Set;
  * @author Sasa Markovic
  */
 public class FetchRequest {
+    private static final Logger LOG = LoggerFactory.getLogger(FetchRequest.class);
+    
     private RrdDb parentDb;
     private ConsolFun consolFun;
     private long fetchStart;

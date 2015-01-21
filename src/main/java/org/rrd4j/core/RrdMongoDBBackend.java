@@ -5,11 +5,14 @@ import java.io.IOException;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBCollection;
 import com.mongodb.DBObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author Mathias Bogaert
  */
 public class RrdMongoDBBackend extends RrdByteArrayBackend {
+    private static final Logger LOG = LoggerFactory.getLogger(RrdMongoDBBackend.class);
     private final DBCollection rrdCollection;
     private volatile boolean dirty = false;
 

@@ -3,6 +3,8 @@ package org.rrd4j.core;
 import java.io.IOException;
 import java.util.StringTokenizer;
 import java.util.Arrays;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * <p>Class to represent data source values for the given timestamp. Objects of this
@@ -27,6 +29,7 @@ import java.util.Arrays;
  * @author Sasa Markovic
  */
 public class Sample {
+    private static final Logger LOG = LoggerFactory.getLogger(Sample.class);
     private final RrdDb parentDb;
     private long time;
     private final String[] dsNames;

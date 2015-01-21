@@ -1,6 +1,8 @@
 package org.rrd4j.core;
 
 import java.io.IOException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Class to represent archive values for a single datasource. Robin class is the heart of
@@ -15,6 +17,7 @@ import java.io.IOException;
  * @author Sasa Markovic
  */
 class RobinArray implements Robin {
+    private static final Logger LOG = LoggerFactory.getLogger(RobinArray.class);
     private final Archive parentArc;
     private final RrdInt pointer;
     private final RrdDoubleArray values;

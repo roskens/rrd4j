@@ -1,6 +1,8 @@
 package org.rrd4j.core;
 
 import java.io.IOException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Class to represent internal RRD archive state for a single datasource. Objects of this
@@ -9,6 +11,7 @@ import java.io.IOException;
  * @author Sasa Markovic
  */
 public class ArcState implements RrdUpdater {
+    private static final Logger LOG = LoggerFactory.getLogger(ArcState.class);
     private Archive parentArc;
 
     private RrdDouble accumValue;

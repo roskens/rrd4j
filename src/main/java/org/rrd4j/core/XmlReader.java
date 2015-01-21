@@ -6,8 +6,11 @@ import org.rrd4j.ConsolFun;
 
 import java.io.File;
 import java.io.IOException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 class XmlReader extends DataImporter {
+    private static final Logger LOG = LoggerFactory.getLogger(XmlReader.class);
 
     private Element root;
     private Node[] dsNodes, arcNodes;

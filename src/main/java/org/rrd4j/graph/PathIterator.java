@@ -1,6 +1,10 @@
 package org.rrd4j.graph;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 class PathIterator {
+    private static final Logger LOG = LoggerFactory.getLogger(PathIterator.class);
     private double[] y;
     private int pos = 0;
 

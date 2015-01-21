@@ -20,6 +20,8 @@ import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Class defines various utility functions used in Rrd4j.
@@ -27,6 +29,7 @@ import java.util.*;
  * @author Sasa Markovic
  */
 public class Util {
+    private static final Logger LOG = LoggerFactory.getLogger(Util.class);
 
     public static final long MAX_LONG = Long.MAX_VALUE;
     public static final long MIN_LONG = -Long.MAX_VALUE;

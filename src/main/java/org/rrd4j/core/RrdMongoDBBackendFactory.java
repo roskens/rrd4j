@@ -4,6 +4,8 @@ import java.io.IOException;
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBCollection;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * {@link RrdBackendFactory} that uses <a href="http://www.mongodb.org/">MongoDB</a> for data storage. Construct a
@@ -12,6 +14,7 @@ import com.mongodb.DBCollection;
  * @author Mathias Bogaert
  */
 public class RrdMongoDBBackendFactory extends RrdBackendFactory {
+    private static final Logger LOG = LoggerFactory.getLogger(RrdMongoDBBackendFactory.class);
     private final DBCollection rrdCollection;
 
     /**

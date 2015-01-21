@@ -8,6 +8,8 @@ import org.rrd4j.ConsolFun;
 import java.io.File;
 import java.io.IOException;
 import java.util.Calendar;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Class used to create an arbitrary number of {@link RrdDef} (RRD definition) objects
@@ -107,6 +109,8 @@ import java.util.Calendar;
  * definition object gets created relatively slowly, but it will be created much faster next time.
  */
 public class RrdDefTemplate extends XmlTemplate {
+    private static final Logger LOG = LoggerFactory.getLogger(RrdDefTemplate.class);
+    
     /**
      * Creates RrdDefTemplate object from any parsable XML input source. Read general information
      * for this class to find an example of a properly formatted RrdDef XML source.

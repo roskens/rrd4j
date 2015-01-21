@@ -5,6 +5,8 @@ import com.sleepycat.je.*;
 import java.io.IOException;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * {@link RrdBackendFactory} that uses
@@ -14,6 +16,7 @@ import java.util.concurrent.CopyOnWriteArraySet;
  * @author <a href="mailto:m.bogaert@memenco.com">Mathias Bogaert</a>
  */
 public class RrdBerkeleyDbBackendFactory extends RrdBackendFactory {
+    private static final Logger LOG = LoggerFactory.getLogger(RrdBerkeleyDbBackendFactory.class);
     private final Database rrdDatabase;
 
     private final Set<String> pathCache = new CopyOnWriteArraySet<String>();

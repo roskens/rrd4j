@@ -2,8 +2,11 @@ package org.rrd4j.inspector;
 
 import java.io.File;
 import java.text.DecimalFormat;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 class InspectorModel {
+    private static final Logger LOG = LoggerFactory.getLogger(InspectorModel.class);
     private MainTreeModel mainTreeModel = new MainTreeModel();
     private HeaderTableModel generalTableModel = new HeaderTableModel();
     private DatasourceTableModel datasourceTableModel = new DatasourceTableModel();
