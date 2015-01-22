@@ -44,6 +44,7 @@ public class Epoch extends JFrame {
     private static final String helpText;
 
     private Timer timer = new Timer(1000, new ActionListener() {
+        @Override
         public void actionPerformed(ActionEvent e) {
             showTimestamp();
         }
@@ -86,12 +87,14 @@ public class Epoch extends JFrame {
         c.add(convertButton, BorderLayout.CENTER);
         convertButton.setToolTipText(helpText);
         convertButton.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
                 convert();
             }
         });
         c.add(helpButton, BorderLayout.EAST);
         helpButton.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
                 JOptionPane.showMessageDialog(helpButton, helpText, "Epoch Help", JOptionPane.INFORMATION_MESSAGE);
             }

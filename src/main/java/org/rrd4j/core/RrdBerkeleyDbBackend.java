@@ -30,11 +30,13 @@ public class RrdBerkeleyDbBackend extends RrdByteArrayBackend {
         this.rrdDatabase = rrdDatabase;
     }
 
+    @Override
     protected synchronized void write(long offset, byte[] bytes) throws IOException {
         super.write(offset, bytes);
         dirty = true;
     }
 
+    @Override
     public void close() throws IOException {
         if (dirty) {
             DatabaseEntry theKey = new DatabaseEntry(getPath().getBytes("UTF-8"));

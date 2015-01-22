@@ -142,12 +142,14 @@ class GraphFrame extends JFrame {
         JButton colorButton = new JButton("Change graph color");
         southPanel.add(colorButton);
         colorButton.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
                 changeColor();
             }
         });
         JButton saveButton = new JButton("Save graph");
         saveButton.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
                 saveGraph();
             }
@@ -158,17 +160,20 @@ class GraphFrame extends JFrame {
         // EVENT HANDLERS
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         addWindowListener(new WindowAdapter() {
+            @Override
             public void windowClosing(WindowEvent e) {
                 closeWindow();
             }
         });
         addComponentListener(new ComponentAdapter() {
+            @Override
             public void componentResized(ComponentEvent e) {
                 createRrdGraph();
                 graphPanel.repaint();
             }
         });
         graphCombo.addItemListener(new ItemListener() {
+            @Override
             public void itemStateChanged(ItemEvent e) {
                 if (e.getStateChange() == ItemEvent.SELECTED) {
                     GraphComboItem item = (GraphComboItem) e.getItem();
@@ -188,6 +193,7 @@ class GraphFrame extends JFrame {
     private void changeColor() {
         final JColorChooser picker = new JColorChooser(color);
         ActionListener okListener = new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
                 color = picker.getColor();
                 createRrdGraph();
@@ -200,10 +206,12 @@ class GraphFrame extends JFrame {
     private void saveGraph() {
         JFileChooser chooser = new JFileChooser();
         FileFilter filter = new FileFilter() {
+            @Override
             public boolean accept(File f) {
                 return f.isDirectory() || f.getAbsolutePath().toLowerCase().endsWith(".png");
             }
 
+            @Override
             public String getDescription() {
                 return "PNG images";
             }
@@ -245,6 +253,7 @@ class GraphFrame extends JFrame {
     }
 
     final class GraphPanel extends JPanel {
+        @Override
         public void paintComponent(Graphics g) {
             if (rrdGraph != null) rrdGraph.render(g);
         }
@@ -260,6 +269,7 @@ class GraphFrame extends JFrame {
             this.arcIndex = arcIndex;
         }
 
+        @Override
         public String toString() {
             return description;
         }

@@ -42,6 +42,7 @@ class RrdNode {
         return arcIndex;
     }
 
+    @Override
     public String toString() {
         return label;
     }

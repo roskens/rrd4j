@@ -328,6 +328,7 @@ public class Archive {
      *
      * @return a summary of the information contained in this archive.
      */
+    @Override
     public String toString() {
 
         StringBuilder sb = new StringBuilder("[Archive: OFFSET=0x");

@@ -27,6 +27,7 @@ class RrdDbPoolOld extends RrdDbPool {
     /* (non-Javadoc)
       * @see org.rrd4j.core.RrdDbPoolI#requestRrdDb(java.lang.String)
       */
+    @Override
     public synchronized RrdDb requestRrdDb(String path) throws IOException {
         String canonicalPath = Util.getCanonicalPath(path);
         while (!rrdMap.containsKey(canonicalPath) && rrdMap.size() >= capacity) {
@@ -54,6 +55,7 @@ class RrdDbPoolOld extends RrdDbPool {
     /* (non-Javadoc)
       * @see org.rrd4j.core.RrdDbPoolI#requestRrdDb(org.rrd4j.core.RrdDef)
       */
+    @Override
     public synchronized RrdDb requestRrdDb(RrdDef rrdDef) throws IOException {
         String canonicalPath = Util.getCanonicalPath(rrdDef.getPath());
         while (rrdMap.containsKey(canonicalPath) || rrdMap.size() >= capacity) {
@@ -72,6 +74,7 @@ class RrdDbPoolOld extends RrdDbPool {
     /* (non-Javadoc)
       * @see org.rrd4j.core.RrdDbPoolI#requestRrdDb(java.lang.String, java.lang.String)
       */
+    @Override
     public synchronized RrdDb requestRrdDb(String path, String sourcePath) throws IOException {
         String canonicalPath = Util.getCanonicalPath(path);
         while (rrdMap.containsKey(canonicalPath) || rrdMap.size() >= capacity) {
@@ -90,6 +93,7 @@ class RrdDbPoolOld extends RrdDbPool {
     /* (non-Javadoc)
       * @see org.rrd4j.core.RrdDbPoolI#release(org.rrd4j.core.RrdDb)
       */
+    @Override
     public synchronized void release(RrdDb rrdDb) throws IOException {
         // null pointer should not kill the thread, just ignore it
         if (rrdDb == null) {
@@ -111,6 +115,7 @@ class RrdDbPoolOld extends RrdDbPool {
     /* (non-Javadoc)
       * @see org.rrd4j.core.RrdDbPoolI#getCapacity()
       */
+    @Override
     public synchronized int getCapacity() {
         return capacity;
     }
@@ -118,6 +123,7 @@ class RrdDbPoolOld extends RrdDbPool {
     /* (non-Javadoc)
       * @see org.rrd4j.core.RrdDbPoolI#setCapacity(int)
       */
+    @Override
     public synchronized void setCapacity(int capacity) {
         this.capacity = capacity;
     }
@@ -125,6 +131,7 @@ class RrdDbPoolOld extends RrdDbPool {
     /* (non-Javadoc)
       * @see org.rrd4j.core.RrdDbPoolI#getOpenFiles()
       */
+    @Override
     public synchronized String[] getOpenFiles() {
         return rrdMap.keySet().toArray(new String[rrdMap.keySet().size()]);
     }
@@ -132,6 +139,7 @@ class RrdDbPoolOld extends RrdDbPool {
     /* (non-Javadoc)
       * @see org.rrd4j.core.RrdDbPoolI#getOpenFileCount()
       */
+    @Override
     public synchronized int getOpenFileCount() {
         return rrdMap.size();
     }

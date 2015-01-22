@@ -43,8 +43,10 @@ class EditDatasourceDialog extends JDialog {
         setVisible(true);
     }
 
+    @Override
     protected JRootPane createRootPane() {
         ActionListener actionListener = new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 setVisible(false);
             }
@@ -128,11 +130,13 @@ class EditDatasourceDialog extends JDialog {
 
         // actions
         okButton.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
                 ok();
             }
         });
         cancelButton.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
                 cancel();
             }

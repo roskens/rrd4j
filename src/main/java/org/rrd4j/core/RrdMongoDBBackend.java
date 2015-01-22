@@ -28,6 +28,7 @@ public class RrdMongoDBBackend extends RrdByteArrayBackend {
         }
     }
 
+    @Override
     protected synchronized void write(long offset, byte[] bytes) throws IOException {
         super.write(offset, bytes);
         dirty = true;

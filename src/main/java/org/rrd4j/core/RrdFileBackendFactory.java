@@ -19,10 +19,12 @@ public abstract class RrdFileBackendFactory extends RrdBackendFactory {
      * @param path File path
      * @return True, if such file exists, false otherwise.
      */
+    @Override
     protected boolean exists(String path) {
         return Util.fileExists(path);
     }
 
+    @Override
     protected boolean shouldValidateHeader(String path) throws IOException {
         return true;
     }

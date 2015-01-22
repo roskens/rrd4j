@@ -27,10 +27,12 @@ import org.rrd4j.core.Util;
 import java.io.IOException;
 
 class RrdTuneCmd extends RrdToolCmd {
+    @Override
 	String getCmdType() {
 		return "tune";
 	}
 
+    @Override
 	Object execute() throws IOException, IllegalArgumentException {
 		String[] heartbeats = getMultipleOptionValues("h", "heartbeat");
 		String[] minimums = getMultipleOptionValues("i", "minimum");

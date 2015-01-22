@@ -103,6 +103,7 @@ public class Header implements Constants {
      *
      * @return a summary of the information contained in this header.
      */
+    @Override
     public String toString() {
 
         StringBuilder sb = new StringBuilder("[Header: OFFSET=0x00, SIZE=0x");

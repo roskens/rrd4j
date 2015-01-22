@@ -19,14 +19,17 @@ class HeaderTableModel extends AbstractTableModel {
 
     private Object[] values;
 
+    @Override
     public int getRowCount() {
         return DESCRIPTIONS.length;
     }
 
+    @Override
     public int getColumnCount() {
         return COLUMN_NAMES.length;
     }
 
+    @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         if (columnIndex == 0) {
             return DESCRIPTIONS[rowIndex];
@@ -42,6 +45,7 @@ class HeaderTableModel extends AbstractTableModel {
         return null;
     }
 
+    @Override
     public String getColumnName(int column) {
         return COLUMN_NAMES[column];
     }

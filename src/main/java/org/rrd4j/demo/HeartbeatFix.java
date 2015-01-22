@@ -16,6 +16,7 @@ public class HeartbeatFix {
         File directory = new File(args[0]);
         long heartbeat = Long.parseLong(args[1]);
         File[] files = directory.listFiles(new FileFilter() {
+            @Override
             public boolean accept(File pathname) {
                 return pathname.isFile() && pathname.getName().endsWith(".rrd.jrb");
             }

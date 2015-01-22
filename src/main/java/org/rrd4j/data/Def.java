@@ -75,12 +75,14 @@ class Def extends Source {
         return fetchData.getStep();
     }
 
+    @Override
     Aggregates getAggregates(long tStart, long tEnd) {
         long[] t = getRrdTimestamps();
         double[] v = getRrdValues();
         return new Aggregator(t, v).getAggregates(tStart, tEnd);
     }
 
+    @Override
     double getPercentile(long tStart, long tEnd, double percentile) {
         long[] t = getRrdTimestamps();
         double[] v = getRrdValues();

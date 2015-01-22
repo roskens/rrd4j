@@ -31,6 +31,7 @@ class SDef extends Source implements NonRrdSource  {
         setValues(values);
     }
 
+    @Override
     Aggregates getAggregates(long tStart, long tEnd) {
         Aggregates agg = new Aggregates();
         agg.first = agg.last = agg.min = agg.max = agg.average = value;
@@ -38,6 +39,7 @@ class SDef extends Source implements NonRrdSource  {
         return agg;
     }
 
+    @Override
     public void calculate(long tStart, long tEnd, DataProcessor dataProcessor) {
         String defName = getDefName();
         ConsolFun consolFun = getConsolFun();

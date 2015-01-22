@@ -22,14 +22,17 @@ class DatasourceTableModel extends AbstractTableModel {
     private Object[] values;
     private int dsIndex = -1;
 
+    @Override
     public int getRowCount() {
         return DESCRIPTIONS.length;
     }
 
+    @Override
     public int getColumnCount() {
         return COLUMN_NAMES.length;
     }
 
+    @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         if (columnIndex == 0) {
             return DESCRIPTIONS[rowIndex];
@@ -45,10 +48,12 @@ class DatasourceTableModel extends AbstractTableModel {
         return null;
     }
 
+    @Override
     public String getColumnName(int column) {
         return COLUMN_NAMES[column];
     }
 
+    @Override
     public boolean isCellEditable(int rowIndex, int columnIndex) {
         return false;
     }

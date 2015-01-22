@@ -25,10 +25,12 @@ import java.io.IOException;
 
 class RrdLastCmd extends RrdToolCmd {
 
+    @Override
 	String getCmdType() {
 		return "last";
 	}
 
+    @Override
 	Object execute() throws IllegalArgumentException, IOException {
 		String[] words = getRemainingWords();
 		if (words.length != 2) {

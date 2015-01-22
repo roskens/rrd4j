@@ -29,6 +29,7 @@ public class RrdMemoryBackendFactory extends RrdBackendFactory {
      * @return RrdMemoryBackend object which handles all I/O operations
      * @throws IOException Thrown in case of I/O error.
      */
+    @Override
     protected RrdBackend open(String id, boolean readOnly) throws IOException {
         RrdMemoryBackend backend;
         if (backends.containsKey(id)) {
@@ -47,10 +48,12 @@ public class RrdMemoryBackendFactory extends RrdBackendFactory {
      * @param id Memory storage ID.
      * @return True, if such storage exists, false otherwise.
      */
+    @Override
     protected boolean exists(String id) {
         return backends.containsKey(id);
     }
 
+    @Override
     protected boolean shouldValidateHeader(String path) throws IOException {
         return false;
     }
@@ -76,6 +79,7 @@ public class RrdMemoryBackendFactory extends RrdBackendFactory {
      *
      * @return Factory name (equals to "MEMORY").
      */
+    @Override
     public String getName() {
         return "MEMORY";
     }

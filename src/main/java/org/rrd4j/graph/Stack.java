@@ -15,6 +15,7 @@ class Stack extends SourcedPlotElement {
         this.parent = parent;
     }
 
+    @Override
     void assignValues(DataProcessor dproc) {
         double[] parentValues = parent.getValues();
         double[] procValues = dproc.getValues(srcName);

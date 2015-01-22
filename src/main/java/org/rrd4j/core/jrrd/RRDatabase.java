@@ -462,6 +462,7 @@ public class RRDatabase {
      *
      * @return a summary of the information contained in this database.
      */
+    @Override
     public String toString() {
 
         String endianness;

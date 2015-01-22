@@ -18,6 +18,7 @@ class DataTableModel extends AbstractTableModel {
     private Object[][] values;
     private int dsIndex = -1, arcIndex = -1;
 
+    @Override
     public int getRowCount() {
         if (values == null) {
             return 0;
@@ -27,10 +28,12 @@ class DataTableModel extends AbstractTableModel {
         }
     }
 
+    @Override
     public int getColumnCount() {
         return COLUMN_NAMES.length;
     }
 
+    @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         if (values == null) {
             return "--";
@@ -38,14 +41,17 @@ class DataTableModel extends AbstractTableModel {
         return values[rowIndex][columnIndex];
     }
 
+    @Override
     public String getColumnName(int column) {
         return COLUMN_NAMES[column];
     }
 
+    @Override
     public boolean isCellEditable(int rowIndex, int columnIndex) {
         return columnIndex == 2;
     }
 
+    @Override
     public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
         assert columnIndex == 2 : "Column " + columnIndex + " is not editable!";
         double value;

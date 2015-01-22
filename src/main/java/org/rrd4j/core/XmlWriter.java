@@ -168,6 +168,7 @@ public class XmlWriter {
         writer.flush();
     }
 
+    @Override
     protected void finalize() {
         writer.close();
     }

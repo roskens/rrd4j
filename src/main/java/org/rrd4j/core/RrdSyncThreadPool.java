@@ -146,6 +146,7 @@ public final class RrdSyncThreadPool
             namePrefix = poolName + " [Thread-";
         }
 
+        @Override
         public Thread newThread(Runnable r) {
             Thread t = new Thread(group, r, namePrefix + threadNumber.getAndIncrement() + nameSuffix);
             t.setDaemon(true);

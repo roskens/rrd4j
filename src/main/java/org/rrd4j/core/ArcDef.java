@@ -118,6 +118,7 @@ public class ArcDef {
      * @return <code>true</code> if archive definitions are equal,
      *         <code>false</code> otherwise.
      */
+    @Override
     public boolean equals(Object obj) {
         if (obj instanceof ArcDef) {
             ArcDef arcObj = (ArcDef) obj;

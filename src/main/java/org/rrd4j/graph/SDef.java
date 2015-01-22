@@ -16,6 +16,7 @@ class SDef extends Source {
         this.consolFun = consolFun;
     }
 
+    @Override
     void requestData(DataProcessor dproc) {
         dproc.addDatasource(name, defName, consolFun);
     }

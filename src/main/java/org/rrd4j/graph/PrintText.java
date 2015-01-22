@@ -26,10 +26,12 @@ class PrintText extends CommentText {
         this.includedInGraph = includedInGraph;
     }
 
+    @Override
     boolean isPrint() {
         return !includedInGraph;
     }
 
+    @Override
     void resolveText(Locale l, DataProcessor dproc, ValueScaler valueScaler) {
         super.resolveText(l, dproc, valueScaler);
         if (resolvedText != null) {

@@ -21,62 +21,77 @@ class XmlReader extends DataImporter {
         arcNodes = Util.Xml.getChildNodes(root, "rra");
     }
 
+    @Override
     String getVersion() {
         return Util.Xml.getChildValue(root, "version");
     }
 
+    @Override
     long getLastUpdateTime() {
         return Util.Xml.getChildValueAsLong(root, "lastupdate");
     }
 
+    @Override
     long getStep() {
         return Util.Xml.getChildValueAsLong(root, "step");
     }
 
+    @Override
     int getDsCount() {
         return dsNodes.length;
     }
 
+    @Override
     int getArcCount() {
         return arcNodes.length;
     }
 
+    @Override
     String getDsName(int dsIndex) {
         return Util.Xml.getChildValue(dsNodes[dsIndex], "name");
     }
 
+    @Override
     String getDsType(int dsIndex) {
         return Util.Xml.getChildValue(dsNodes[dsIndex], "type");
     }
 
+    @Override
     long getHeartbeat(int dsIndex) {
         return Util.Xml.getChildValueAsLong(dsNodes[dsIndex], "minimal_heartbeat");
     }
 
+    @Override
     double getMinValue(int dsIndex) {
         return Util.Xml.getChildValueAsDouble(dsNodes[dsIndex], "min");
     }
 
+    @Override
     double getMaxValue(int dsIndex) {
         return Util.Xml.getChildValueAsDouble(dsNodes[dsIndex], "max");
     }
 
+    @Override
     double getLastValue(int dsIndex) {
         return Util.Xml.getChildValueAsDouble(dsNodes[dsIndex], "last_ds");
     }
 
+    @Override
     double getAccumValue(int dsIndex) {
         return Util.Xml.getChildValueAsDouble(dsNodes[dsIndex], "value");
     }
 
+    @Override
     long getNanSeconds(int dsIndex) {
         return Util.Xml.getChildValueAsLong(dsNodes[dsIndex], "unknown_sec");
     }
 
+    @Override
     ConsolFun getConsolFun(int arcIndex) {
         return ConsolFun.valueOf(Util.Xml.getChildValue(arcNodes[arcIndex], "cf"));
     }
 
+    @Override
     double getXff(int arcIndex) {
         Node arc = arcNodes[arcIndex];
         Node params[] = Util.Xml.getChildNodes(arc, "params");
@@ -90,28 +105,33 @@ class XmlReader extends DataImporter {
         }
     }
 
+    @Override
     int getSteps(int arcIndex) {
         return Util.Xml.getChildValueAsInt(arcNodes[arcIndex], "pdp_per_row");
     }
 
+    @Override
     double getStateAccumValue(int arcIndex, int dsIndex) {
         Node cdpNode = Util.Xml.getFirstChildNode(arcNodes[arcIndex], "cdp_prep");
         Node[] dsNodes = Util.Xml.getChildNodes(cdpNode, "ds");
         return Util.Xml.getChildValueAsDouble(dsNodes[dsIndex], "value");
     }
 
+    @Override
     int getStateNanSteps(int arcIndex, int dsIndex) {
         Node cdpNode = Util.Xml.getFirstChildNode(arcNodes[arcIndex], "cdp_prep");
         Node[] dsNodes = Util.Xml.getChildNodes(cdpNode, "ds");
         return Util.Xml.getChildValueAsInt(dsNodes[dsIndex], "unknown_datapoints");
     }
 
+    @Override
     int getRows(int arcIndex) {
         Node dbNode = Util.Xml.getFirstChildNode(arcNodes[arcIndex], "database");
         Node[] rows = Util.Xml.getChildNodes(dbNode, "row");
         return rows.length;
     }
 
+    @Override
     double[] getValues(int arcIndex, int dsIndex) {
         Node dbNode = Util.Xml.getFirstChildNode(arcNodes[arcIndex], "database");
         Node[] rows = Util.Xml.getChildNodes(dbNode, "row");

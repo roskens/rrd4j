@@ -151,6 +151,7 @@ public class DsDef {
      * @return <code>true</code> if archive definitions are equal,
      *         <code>false</code> otherwise.
      */
+    @Override
     public boolean equals(Object obj) {
         if (obj instanceof DsDef) {
             DsDef dsObj = (DsDef) obj;

@@ -13,6 +13,7 @@ class CDef extends Source {
         this.rpnExpression = rpnExpression;
     }
 
+    @Override
     void requestData(DataProcessor dproc) {
         dproc.addDatasource(name, rpnExpression);
     }

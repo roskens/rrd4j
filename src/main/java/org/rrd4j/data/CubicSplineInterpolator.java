@@ -170,6 +170,7 @@ public class CubicSplineInterpolator extends Plottable {
      * @param timestamp timestamp in seconds
      * @return inteprolated datasource value
      */
+    @Override
 	public double getValue(long timestamp) {
 		return getValue((double)timestamp);
 	}

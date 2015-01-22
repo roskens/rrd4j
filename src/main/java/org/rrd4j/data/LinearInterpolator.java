@@ -184,6 +184,7 @@ public class LinearInterpolator extends Plottable {
      * @param timestamp timestamp in seconds
      * @return interpolated datasource value
      */
+    @Override
     public double getValue(long timestamp) {
         if (interpolationMethod == INTERPOLATE_REGRESSION) {
             return b0 + b1 * timestamp;

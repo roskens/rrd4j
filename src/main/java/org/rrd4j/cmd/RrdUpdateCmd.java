@@ -26,10 +26,12 @@ import org.rrd4j.core.Util;
 import java.io.IOException;
 
 class RrdUpdateCmd extends RrdToolCmd {
+    @Override
 	String getCmdType() {
 		return "update";
 	}
 
+    @Override
 	Object execute() throws IllegalArgumentException, IOException {
 		String template = getOptionValue("t", "template");
 		String[] dsNames = (template != null) ? new ColonSplitter(template).split() : null;

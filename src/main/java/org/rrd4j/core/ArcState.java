@@ -87,6 +87,7 @@ public class ArcState implements RrdUpdater {
      * @param other New ArcState object to copy state to
      * @throws IOException Thrown in case of I/O error
      */
+    @Override
     public void copyStateTo(RrdUpdater other) throws IOException {
         if (!(other instanceof ArcState)) {
             LOG.error("Cannot copy ArcState object to {}", other.getClass().getName());
@@ -103,6 +104,7 @@ public class ArcState implements RrdUpdater {
      *
      * @return I/O backend object
      */
+    @Override
     public RrdBackend getRrdBackend() {
         return parentArc.getRrdBackend();
     }
@@ -112,6 +114,7 @@ public class ArcState implements RrdUpdater {
      *
      * @return Allocator object
      */
+    @Override
     public RrdAllocator getRrdAllocator() {
         return parentArc.getRrdAllocator();
 	}

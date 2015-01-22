@@ -22,6 +22,7 @@ class Def extends Source {
         this.backend = backend;
     }
 
+    @Override
     void requestData(DataProcessor dproc) {
         if (backend == null) {
             dproc.addDatasource(name, rrdPath, dsName, consolFun);

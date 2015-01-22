@@ -33,10 +33,12 @@ class RrdGraphCmd extends RrdToolCmd implements RrdGraphConstants {
 	static final Color BLIND_COLOR = new Color(0, 0, 0, 0);
 	private RrdGraphDef gdef;
 
+    @Override
 	String getCmdType() {
 		return "graph";
 	}
 
+    @Override
 	Object execute() throws IllegalArgumentException, IOException {
 		gdef = getGraphDef();
 

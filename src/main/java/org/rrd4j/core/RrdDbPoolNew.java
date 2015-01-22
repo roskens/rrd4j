@@ -45,10 +45,12 @@ class RrdDbPoolNew extends RrdDbPool {
         };
     }
 
+    @Override
     public int getOpenFileCount() {
         return maxCapacity - capacity.availablePermits();
     }
 
+    @Override
     public String[] getOpenFiles() {
         try {
             poolLock.acquire();
@@ -118,6 +120,7 @@ class RrdDbPoolNew extends RrdDbPool {
     /* (non-Javadoc)
      * @see org.rrd4j.core.RrdDbPoolI#release(org.rrd4j.core.RrdDb)
      */
+    @Override
     public void release(RrdDb rrdDb) throws IOException {
         // null pointer should not kill the thread, just ignore it
         if (rrdDb == null) {
@@ -169,6 +172,7 @@ class RrdDbPoolNew extends RrdDbPool {
     /* (non-Javadoc)
      * @see org.rrd4j.core.RrdDbPoolI#requestRrdDb(java.lang.String)
      */
+    @Override
     public RrdDb requestRrdDb(String path) throws IOException {
         RrdEntry ref = getEntry(path);
 
@@ -203,6 +207,7 @@ class RrdDbPoolNew extends RrdDbPool {
     /* (non-Javadoc)
      * @see org.rrd4j.core.RrdDbPoolI#requestRrdDb(org.rrd4j.core.RrdDef)
      */
+    @Override
     public RrdDb requestRrdDb(RrdDef rrdDef) throws IOException {
         RrdEntry ref = null;
         try {
@@ -224,6 +229,7 @@ class RrdDbPoolNew extends RrdDbPool {
     /* (non-Javadoc)
      * @see org.rrd4j.core.RrdDbPoolI#requestRrdDb(java.lang.String, java.lang.String)
      */
+    @Override
     public RrdDb requestRrdDb(String path, String sourcePath)
     throws IOException {
         RrdEntry ref = null;
@@ -240,6 +246,7 @@ class RrdDbPoolNew extends RrdDbPool {
         return ref.rrdDb;
     }
 
+    @Override
     public void setCapacity(int newCapacity) {
         int available = capacity.drainPermits();
         if (available != maxCapacity) {
@@ -257,6 +264,7 @@ class RrdDbPoolNew extends RrdDbPool {
         maxCapacity = newCapacity;
     }
 
+    @Override
     public int getCapacity() {
         return maxCapacity;
     }

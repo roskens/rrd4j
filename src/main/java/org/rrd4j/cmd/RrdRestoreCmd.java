@@ -24,10 +24,12 @@ import org.rrd4j.core.RrdDb;
 import java.io.IOException;
 
 class RrdRestoreCmd extends RrdToolCmd {
+    @Override
 	String getCmdType() {
 		return "restore";
 	}
 
+    @Override
 	Object execute() throws IOException, IllegalArgumentException {
 		boolean check = getBooleanOption("r", "range-check");
 		String[] words = getRemainingWords();

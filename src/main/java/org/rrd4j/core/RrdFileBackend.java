@@ -53,6 +53,7 @@ public abstract class RrdFileBackend extends RrdBackend {
      *
      * @throws IOException Thrown in case of I/O error
      */
+    @Override
     abstract public void close() throws IOException;
 
         /**

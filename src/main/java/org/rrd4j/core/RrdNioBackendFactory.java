@@ -114,6 +114,7 @@ public class RrdNioBackendFactory extends RrdFileBackendFactory {
      * @return RrdNioBackend object which handles all I/O operations for the given file path
      * @throws IOException Thrown in case of I/O error.
      */
+    @Override
     protected RrdBackend open(String path, boolean readOnly) throws IOException {
         LOG.debug("Openning file '{}' as {}", path, readOnly ? "read-only" : "read-write");
         // Instantiate a thread pool if none was provided
@@ -123,6 +124,7 @@ public class RrdNioBackendFactory extends RrdFileBackendFactory {
         return new RrdNioBackend(path, readOnly, syncThreadPool, syncPeriod);
     }
 
+    @Override
     public String getName() {
         return "NIO";
     }

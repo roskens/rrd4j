@@ -284,6 +284,7 @@ public class Datasource implements RrdUpdater {
      * @param other New Datasource object to copy state to
      * @throws IOException Thrown in case of I/O error
      */
+    @Override
     public void copyStateTo(RrdUpdater other) throws IOException {
         if (!(other instanceof Datasource)) {
             LOG.error("Cannot copy Datasource object to {}", other.getClass().getName());
@@ -461,6 +462,7 @@ public class Datasource implements RrdUpdater {
      *
      * @return I/O backend object
      */
+    @Override
     public RrdBackend getRrdBackend() {
         return parentDb.getRrdBackend();
     }
@@ -470,6 +472,7 @@ public class Datasource implements RrdUpdater {
      *
      * @return Allocator object
      */
+    @Override
     public RrdAllocator getRrdAllocator() {
         return parentDb.getRrdAllocator();
     }

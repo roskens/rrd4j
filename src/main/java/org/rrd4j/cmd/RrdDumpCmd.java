@@ -24,10 +24,12 @@ import org.rrd4j.core.RrdDb;
 import java.io.IOException;
 
 class RrdDumpCmd extends RrdToolCmd {
+    @Override
 	String getCmdType() {
 		return "dump";
 	}
 
+    @Override
 	Object execute() throws IllegalArgumentException, IOException {
 		String[] words = getRemainingWords();
 		if (words.length != 2) {

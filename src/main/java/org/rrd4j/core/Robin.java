@@ -80,6 +80,7 @@ public interface Robin extends RrdUpdater {
      * @param other New Robin object to copy state to
      * @throws IOException Thrown in case of I/O error
      */
+    @Override
     void copyStateTo(RrdUpdater other) throws IOException;
 
     /**
@@ -99,6 +100,7 @@ public interface Robin extends RrdUpdater {
      *
      * @return I/O backend object
      */
+    @Override
     RrdBackend getRrdBackend();
 
     /**
@@ -106,6 +108,7 @@ public interface Robin extends RrdUpdater {
      *
      * @return Allocator object
      */
+    @Override
     RrdAllocator getRrdAllocator();
 
     void update(double[] newValues) throws IOException;

@@ -25,10 +25,12 @@ import org.rrd4j.core.Archive;
 import java.io.IOException;
 
 class RrdInfoCmd extends RrdToolCmd {
+    @Override
 	String getCmdType() {
 		return "info";
 	}
 
+    @Override
 	Object execute() throws IllegalArgumentException, IOException {
 		String[] words = getRemainingWords();
 		if (words.length != 2) {

@@ -66,6 +66,7 @@ public class RrdSafeFileBackend extends RrdRandomAccessFileBackend {
                 "] after " + lockWaitTime + " milliseconds");
     }
 
+    @Override
     public void close() throws IOException {
         try {
             if (lock != null) {
@@ -85,6 +86,7 @@ public class RrdSafeFileBackend extends RrdRandomAccessFileBackend {
      *
      * @return <code>false</code>
      */
+    @Override
     protected boolean isCachingAllowed() {
         return false;
     }

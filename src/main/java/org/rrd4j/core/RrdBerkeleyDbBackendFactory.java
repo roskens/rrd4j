@@ -29,6 +29,7 @@ public class RrdBerkeleyDbBackendFactory extends RrdBackendFactory {
     /**
      * Creates new RrdBerkeleyDbBackend object for the given id (path).
      */
+    @Override
     protected RrdBackend open(String path, boolean readOnly) throws IOException {
         if (pathCache.contains(path)) {
             DatabaseEntry theKey = new DatabaseEntry(path.getBytes("UTF-8"));
@@ -65,6 +66,7 @@ public class RrdBerkeleyDbBackendFactory extends RrdBackendFactory {
     /**
      * Checks if the RRD with the given id (path) already exists in the database.
      */
+    @Override
     protected boolean exists(String path) throws IOException {
         if (pathCache.contains(path)) {
             return true;
@@ -87,10 +89,12 @@ public class RrdBerkeleyDbBackendFactory extends RrdBackendFactory {
         }
     }
 
+    @Override
     protected boolean shouldValidateHeader(String path) {
         return false;
     }
 
+    @Override
     public String getName() {
         return "BERKELEY";
     }

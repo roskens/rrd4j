@@ -182,6 +182,7 @@ class DirectGif89Frame extends Gif89Frame {
         ciPixels = new byte[argbPixels.length];
     }
 
+    @Override
     Object getPixelSource() {
         return argbPixels;
     }
@@ -651,6 +652,7 @@ class IndexGif89Frame extends Gif89Frame {
         System.arraycopy(ci_pixels, 0, ciPixels, 0, ciPixels.length);
     }
 
+    @Override
     Object getPixelSource() {
         return ciPixels;
     }

@@ -19,6 +19,7 @@ public class RrdNioBackend extends RrdRandomAccessFileBackend {
     private MappedByteBuffer byteBuffer;
 
     private final Runnable syncRunnable = new Runnable() {
+        @Override
         public void run() {
             sync();
         }
@@ -84,6 +85,7 @@ public class RrdNioBackend extends RrdRandomAccessFileBackend {
      * @param newLength Length of the RRD file
      * @throws IOException Thrown in case of I/O error.
      */
+    @Override
     protected synchronized void setLength(long newLength) throws IOException {
         unmapFile();
         super.setLength(newLength);
@@ -96,6 +98,7 @@ public class RrdNioBackend extends RrdRandomAccessFileBackend {
      * @param offset Starting file offset
      * @param b      Bytes to be written.
      */
+    @Override
     protected synchronized void write(long offset, byte[] b) throws IOException {
         if (byteBuffer != null) {
             byteBuffer.position((int) offset);
@@ -112,6 +115,7 @@ public class RrdNioBackend extends RrdRandomAccessFileBackend {
      * @param offset Starting file offset
      * @param b      Buffer which receives bytes read from the file.
      */
+    @Override
     protected synchronized void read(long offset, byte[] b) throws IOException {
         if (byteBuffer != null) {
             byteBuffer.position((int) offset);
@@ -127,6 +131,7 @@ public class RrdNioBackend extends RrdRandomAccessFileBackend {
      *
      * @throws IOException Thrown in case of I/O error
      */
+    @Override
     public synchronized void close() throws IOException {
         // cancel synchronization
         try {

@@ -29,11 +29,13 @@ public class RrdSafeFileBackendFactory extends RrdRandomAccessFileBackendFactory
      * @return RrdSafeFileBackend object which handles all I/O operations for the given file path
      * @throws IOException Thrown in case of I/O error.
      */
+    @Override
     protected RrdBackend open(String path, boolean readOnly) throws IOException {
         LOG.debug("Openning file '{}' as {}", path, readOnly ? "read-only" : "read-write");
         return new RrdSafeFileBackend(path, lockWaitTime, lockRetryPeriod);
     }
 
+    @Override
     public String getName() {
         return "SAFE";
     }

@@ -165,6 +165,7 @@ public class Header implements RrdUpdater {
      * @param other New Header object to copy state to
      * @throws IOException Thrown in case of I/O error
      */
+    @Override
     public void copyStateTo(RrdUpdater other) throws IOException {
         if (!(other instanceof Header)) {
             throw new IllegalArgumentException(
@@ -181,6 +182,7 @@ public class Header implements RrdUpdater {
      *
      * @return I/O backend object
      */
+    @Override
     public RrdBackend getRrdBackend() {
         return parentDb.getRrdBackend();
     }
@@ -218,6 +220,7 @@ public class Header implements RrdUpdater {
      *
      * @return Allocator object
      */
+    @Override
     public RrdAllocator getRrdAllocator() {
         return parentDb.getRrdAllocator();
 	}

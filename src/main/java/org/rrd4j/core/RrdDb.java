@@ -888,6 +888,7 @@ public class RrdDb implements RrdUpdater {
         return rrdDef;
     }
 
+    @Override
     protected void finalize() throws Throwable {
         try {
             close();
@@ -903,6 +904,7 @@ public class RrdDb implements RrdUpdater {
      * @param other New RrdDb object to copy state to
      * @throws IOException Thrown in case of I/O error
      */
+    @Override
     public synchronized void copyStateTo(RrdUpdater other) throws IOException {
         if (!(other instanceof RrdDb)) {
             throw new IllegalArgumentException("Cannot copy RrdDb object to " + other.getClass().getName());
@@ -1008,6 +1010,7 @@ public class RrdDb implements RrdUpdater {
      *
      * @return RRD backend for this RRD.
      */
+    @Override
     public RrdBackend getRrdBackend() {
         return backend;
     }
@@ -1017,6 +1020,7 @@ public class RrdDb implements RrdUpdater {
      *
      * @return Allocator object
      */
+    @Override
     public RrdAllocator getRrdAllocator() {
         return allocator;
     }

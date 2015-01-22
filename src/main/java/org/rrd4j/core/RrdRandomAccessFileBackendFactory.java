@@ -19,6 +19,7 @@ public class RrdRandomAccessFileBackendFactory extends RrdFileBackendFactory {
      * @return RrdFileBackend object which handles all I/O operations for the given file path
      * @throws IOException Thrown in case of I/O error.
      */
+    @Override
     protected RrdBackend open(String path, boolean readOnly) throws IOException {
         LOG.debug("Openning file '{}' as {}", path, readOnly ? "read-only" : "read-write");
         return new RrdRandomAccessFileBackend(path, readOnly);
@@ -30,14 +31,17 @@ public class RrdRandomAccessFileBackendFactory extends RrdFileBackendFactory {
      * @param path File path
      * @return True, if such file exists, false otherwise.
      */
+    @Override
     protected boolean exists(String path) {
         return Util.fileExists(path);
     }
 
+    @Override
     protected boolean shouldValidateHeader(String path) throws IOException {
         return true;
     }
 
+    @Override
     public String getName() {
         return "FILE";
     }

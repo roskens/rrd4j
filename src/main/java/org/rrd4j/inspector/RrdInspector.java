@@ -51,6 +51,7 @@ public class RrdInspector extends JFrame {
         super(TITLE);
 
         SwingUtilities.invokeAndWait(new Runnable() {
+            @Override
             public void run() {
                 constructUI();
                 pack();
@@ -77,6 +78,7 @@ public class RrdInspector extends JFrame {
 
         JButton openButton = new JButton(loadIcon("open-24.png"));
         openButton.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
                 selectFile();
             }
@@ -86,6 +88,7 @@ public class RrdInspector extends JFrame {
         final JButton plotButton = new JButton(loadIcon("graph-24.gif"));
         plotButton.setEnabled(false);
         plotButton.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
                 plotArchive();
             }
@@ -105,6 +108,7 @@ public class RrdInspector extends JFrame {
 
         mainTree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
         mainTree.addTreeSelectionListener(new TreeSelectionListener() {
+            @Override
             public void valueChanged(TreeSelectionEvent e) {
                 nodeChangedAction();
                 plotButton.setEnabled(isArchiveNode(getSelectedRrdNode()));
@@ -173,6 +177,7 @@ public class RrdInspector extends JFrame {
         // Open file
         JMenuItem fileMenuItem = new JMenuItem("Open RRD file...", KeyEvent.VK_O);
         fileMenuItem.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
                 selectFile();
             }
@@ -182,6 +187,7 @@ public class RrdInspector extends JFrame {
         // Open file in new window
         JMenuItem fileMenuItem2 = new JMenuItem("Open RRD file in new window...");
         fileMenuItem2.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
                 try {
                     new RrdInspector(null);
@@ -196,6 +202,7 @@ public class RrdInspector extends JFrame {
         // Add datasource
         JMenuItem addDatasourceMenuItem = new JMenuItem("Add datasource...");
         addDatasourceMenuItem.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
                 addDatasource();
             }
@@ -205,6 +212,7 @@ public class RrdInspector extends JFrame {
         // Edit datasource
         JMenuItem editDatasourceMenuItem = new JMenuItem("Edit datasource...");
         editDatasourceMenuItem.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
                 editDatasource();
             }
@@ -214,6 +222,7 @@ public class RrdInspector extends JFrame {
         // Remove datasource
         JMenuItem removeDatasourceMenuItem = new JMenuItem("Remove datasource");
         removeDatasourceMenuItem.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
                 removeDatasource();
             }
@@ -224,6 +233,7 @@ public class RrdInspector extends JFrame {
         // Add archive
         JMenuItem addArchiveMenuItem = new JMenuItem("Add archive...");
         addArchiveMenuItem.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
                 addArchive();
             }
@@ -233,6 +243,7 @@ public class RrdInspector extends JFrame {
         // Edit archive
         JMenuItem editArchiveMenuItem = new JMenuItem("Edit archive...");
         editArchiveMenuItem.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
                 editArchive();
             }
@@ -242,6 +253,7 @@ public class RrdInspector extends JFrame {
         // Remove archive
         JMenuItem removeArchiveMenuItem = new JMenuItem("Remove archive");
         removeArchiveMenuItem.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
                 removeArchive();
             }
@@ -251,6 +263,7 @@ public class RrdInspector extends JFrame {
         // Plot archive values
         JMenuItem plotArchiveMenuItem = new JMenuItem("Plot archive values...");
         plotArchiveMenuItem.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
                 plotArchive();
             }
@@ -261,6 +274,7 @@ public class RrdInspector extends JFrame {
         // Exit
         JMenuItem exitMenuItem = new JMenuItem("Exit", KeyEvent.VK_X);
         exitMenuItem.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
                 System.exit(0);
             }
@@ -274,6 +288,7 @@ public class RrdInspector extends JFrame {
         // About
         JMenuItem aboutMenuItem = new JMenuItem("About...", KeyEvent.VK_A);
         aboutMenuItem.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
                 about();
             }
@@ -287,6 +302,7 @@ public class RrdInspector extends JFrame {
         // finalize UI
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         addWindowListener(new WindowAdapter() {
+            @Override
             public void windowClosing(WindowEvent e) {
                 closeWindow();
             }
@@ -337,12 +353,14 @@ public class RrdInspector extends JFrame {
     private void selectFile() {
         JFileChooser chooser = new JFileChooser(lastDirectory);
         FileFilter filter = new FileFilter() {
+            @Override
             public boolean accept(File file) {
                 String path = file.getAbsolutePath().toLowerCase();
                 return file.isDirectory() || path.endsWith(".rrd") ||
                         path.endsWith(".jrb") || path.endsWith(".rrd4j");
             }
 
+            @Override
             public String getDescription() {
                 return "Rrd4j RRD files (*.rrd;*.jrb;*.rrd4j)";
             }
@@ -585,6 +603,7 @@ public class RrdInspector extends JFrame {
 
         // Set look and feel
         SwingUtilities.invokeAndWait(new Runnable() {
+            @Override
             public void run() {
                 try {
                     UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");

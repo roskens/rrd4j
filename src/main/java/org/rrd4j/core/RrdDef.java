@@ -618,6 +618,7 @@ public class RrdDef {
      * @param obj The second RrdDef object
      * @return true if RrdDefs match exactly, false otherwise
      */
+    @Override
     public boolean equals(Object obj) {
         if (obj == null || !(obj instanceof RrdDef)) {
             return false;

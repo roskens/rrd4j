@@ -14,6 +14,7 @@ class PDef extends Source {
         this.plottable = plottable;
     }
 
+    @Override
     void requestData(DataProcessor dproc) {
         dproc.addDatasource(name, plottable);
     }

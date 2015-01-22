@@ -15,11 +15,13 @@ public abstract class RrdByteArrayBackend extends RrdBackend {
         super(path);
     }
 
+    @Override
     protected synchronized void write(long offset, byte[] bytes) throws IOException {
         int pos = (int) offset;
         System.arraycopy(bytes, 0, buffer, pos, bytes.length);
     }
 
+    @Override
     protected synchronized void read(long offset, byte[] bytes) throws IOException {
         int pos = (int) offset;
         if (pos + bytes.length <= buffer.length) {
@@ -35,6 +37,7 @@ public abstract class RrdByteArrayBackend extends RrdBackend {
      *
      * @return Number of all RRD bytes.
      */
+    @Override
     public long getLength() {
         return buffer.length;
     }
@@ -45,6 +48,7 @@ public abstract class RrdByteArrayBackend extends RrdBackend {
      * @param length Number of bytes held in memory.
      * @throws IOException Thrown in case of I/O error.
      */
+    @Override
     protected void setLength(long length) throws IOException {
         if (length > Integer.MAX_VALUE) {
             throw new IOException("Illegal length: " + length);
@@ -57,6 +61,7 @@ public abstract class RrdByteArrayBackend extends RrdBackend {
      * This method is required by the base class definition, but it does not
      * releases any memory resources at all.
      */
+    @Override
     public void close() throws IOException {
         // NOP
     }
@@ -67,6 +72,7 @@ public abstract class RrdByteArrayBackend extends RrdBackend {
      * @return Always returns <code>false</code>. There is no need to cache anything in high-level classes
      *         since all RRD bytes are already in memory.
      */
+    @Override
     protected boolean isCachingAllowed() {
         return false;
     }

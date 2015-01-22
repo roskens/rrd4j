@@ -38,11 +38,13 @@ class RobinMatrix implements Robin {
      * @return Array of double archive values, starting from the oldest one.
      * @throws IOException Thrown in case of I/O specific error.
      */
+    @Override
     public double[] getValues() throws IOException {
         return getValues(0, rows);
     }
 
     // stores single value
+    @Override
     public void store(double newValue) throws IOException {
         int position = pointer.get();
         values.set(column, position, newValue);
@@ -50,6 +52,7 @@ class RobinMatrix implements Robin {
     }
 
     // stores the same value several times
+    @Override
     public void bulkStore(double newValue, int bulkCount) throws IOException {
         assert bulkCount <= rows: "Invalid number of bulk updates: " + bulkCount + " rows=" + rows;
 
@@ -69,6 +72,7 @@ class RobinMatrix implements Robin {
         }
     }
 
+    @Override
     public void update(double[] newValues) throws IOException {
         assert rows == newValues.length: "Invalid number of robin values supplied (" + newValues.length +
         "), exactly " + rows + " needed";
@@ -84,6 +88,7 @@ class RobinMatrix implements Robin {
      * @throws IllegalArgumentException Thrown if the length of the input array is different from the length of
      *                                  this archive
      */
+    @Override
     public void setValues(double... newValues) throws IOException {
         if (rows != newValues.length) {
             throw new IllegalArgumentException("Invalid number of robin values supplied (" + newValues.length +
@@ -98,6 +103,7 @@ class RobinMatrix implements Robin {
      * @param newValue New value
      * @throws IOException Thrown in case of I/O error
      */
+    @Override
     public void setValues(double newValue) throws IOException {
         double[] values = new double[rows];
         for (int i = 0; i < values.length; i++) {
@@ -106,6 +112,7 @@ class RobinMatrix implements Robin {
         update(values);
     }
 
+    @Override
     public String dump() throws IOException {
         StringBuilder buffer = new StringBuilder("Robin " + pointer.get() + "/" + rows + ": ");
         double[] values = getValues();
@@ -123,6 +130,7 @@ class RobinMatrix implements Robin {
      * @return Value stored in the i-th position (the oldest value has zero index)
      * @throws IOException Thrown in case of I/O specific error.
      */
+    @Override
     public double getValue(int index) throws IOException {
         int arrayIndex = (pointer.get() + index) % rows;
         return values.get(column, arrayIndex);
@@ -135,11 +143,13 @@ class RobinMatrix implements Robin {
      * @param value value to be stored
      * @throws IOException Thrown in case of I/O specific error.
      */
+    @Override
     public void setValue(int index, double value) throws IOException {
         int arrayIndex = (pointer.get() + index) % rows;
         values.set(column, arrayIndex, value);
     }
 
+    @Override
     public double[] getValues(int index, int count) throws IOException {
         assert count <= rows: "Too many values requested: " + count + " rows=" + rows;
 
@@ -169,6 +179,7 @@ class RobinMatrix implements Robin {
      *
      * @return Parent Archive object
      */
+    @Override
     public Archive getParent() {
         return parentArc;
     }
@@ -178,6 +189,7 @@ class RobinMatrix implements Robin {
      *
      * @return Number of stored values
      */
+    @Override
     public int getSize() {
         return rows;
     }
@@ -188,6 +200,7 @@ class RobinMatrix implements Robin {
      * @param other New Robin object to copy state to
      * @throws IOException Thrown in case of I/O error
      */
+    @Override
     public void copyStateTo(RrdUpdater other) throws IOException {
         if (!(other instanceof Robin)) {
             throw new IllegalArgumentException(
@@ -210,6 +223,7 @@ class RobinMatrix implements Robin {
      * @param maxValue upper boundary
      * @throws IOException Thrown in case of I/O error
      */
+    @Override
     public void filterValues(double minValue, double maxValue) throws IOException {
         for (int i = 0; i < rows; i++) {
             double value = values.get(column, i);
@@ -228,6 +242,7 @@ class RobinMatrix implements Robin {
      *
      * @return I/O backend object
      */
+    @Override
     public RrdBackend getRrdBackend() {
         return parentArc.getRrdBackend();
     }
@@ -237,6 +252,7 @@ class RobinMatrix implements Robin {
      *
      * @return Allocator object
      */
+    @Override
     public RrdAllocator getRrdAllocator() {
         return parentArc.getRrdAllocator();
     }

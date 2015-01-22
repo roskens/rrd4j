@@ -26,10 +26,12 @@ import org.rrd4j.graph.RrdGraphConstants;
 import java.io.IOException;
 
 class RrdFetchCmd extends RrdToolCmd implements RrdGraphConstants {
+    @Override
 	String getCmdType() {
 		return "fetch";
 	}
 
+    @Override
 	Object execute() throws IllegalArgumentException, IOException {
 		String startStr = getOptionValue("s", "start", DEFAULT_START);
 		String endStr = getOptionValue("e", "end", DEFAULT_END);
