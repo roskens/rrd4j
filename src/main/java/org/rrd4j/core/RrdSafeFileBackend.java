@@ -36,6 +36,7 @@ public class RrdSafeFileBackend extends RrdRandomAccessFileBackend {
             super.close();
             throw ioe;
         }
+        LOG.debug("Opened file '{}'", getPath());
     }
 
     private void lockFile(long lockWaitTime, long lockRetryPeriod) throws IOException {
@@ -75,6 +76,7 @@ public class RrdSafeFileBackend extends RrdRandomAccessFileBackend {
         }
         finally {
             super.close();
+            LOG.debug("Closing file '{}'", getPath());
         }
     }
 

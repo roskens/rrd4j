@@ -44,12 +44,15 @@ public class ArcDef {
      */
     public ArcDef(ConsolFun consolFun, double xff, int steps, int rows) {
         if (consolFun == null) {
+            LOG.error("Null consolidation function specified");
             throw new IllegalArgumentException("Null consolidation function specified");
         }
         if (Double.isNaN(xff) || xff < 0.0 || xff >= 1.0) {
+            LOG.error("Invalid xff, must be >= 0 and < 1: {}", xff);
             throw new IllegalArgumentException("Invalid xff, must be >= 0 and < 1: " + xff);
         }
         if (steps < 1 || rows < 2) {
+            LOG.error("Invalid steps/rows settings: {}/{}. Minimal values allowed are steps=1, rows=2", steps, rows);
             throw new IllegalArgumentException("Invalid steps/rows settings: " + steps + "/" + rows +
                     ". Minimal values allowed are steps=1, rows=2");
         }

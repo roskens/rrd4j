@@ -34,6 +34,7 @@ public class RrdRandomAccessFileBackend extends  RrdFileBackend {
      * @throws IOException Thrown in case of I/O error
      */
     public void close() throws IOException {
+        LOG.debug("Closing file '{}'", getPath());
         rafile.close();
     }
 
@@ -59,6 +60,7 @@ public class RrdRandomAccessFileBackend extends  RrdFileBackend {
     protected void read(long offset, byte[] b) throws IOException {
         rafile.seek(offset);
         if (rafile.read(b) != b.length) {
+            LOG.error("Not enough bytes available in file {}", getPath());
             throw new IOException("Not enough bytes available in file " + getPath());
         }
     }

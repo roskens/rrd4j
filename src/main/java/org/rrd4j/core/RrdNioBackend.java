@@ -56,6 +56,7 @@ public class RrdNioBackend extends RrdRandomAccessFileBackend {
             super.close();
             throw rte;
         }
+        LOG.debug("Opened file '{}' as {}", getPath(), readOnly ? "read-only" : "read-write");
     }
 
     private void mapFile() throws IOException {
@@ -137,6 +138,7 @@ public class RrdNioBackend extends RrdRandomAccessFileBackend {
         }
         finally {
             super.close();
+            LOG.debug("Closed file '{}'", getPath());
         }
     }
 

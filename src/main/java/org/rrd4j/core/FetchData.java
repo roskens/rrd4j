@@ -144,6 +144,7 @@ public class FetchData {
                 return getValues(dsIndex);
             }
         }
+        LOG.error("Datasource '{}' not found", dsName);
         throw new IllegalArgumentException("Datasource [" + dsName + "] not found");
     }
 
@@ -476,6 +477,7 @@ public class FetchData {
             }
             catch (IOException ioe) {
 				// highly unlikely, since all datasources have already calculated values
+                LOG.error("Impossible!", ioe);
 				throw new RuntimeException("Impossible error: " + ioe);
 			}
 		}

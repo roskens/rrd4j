@@ -115,6 +115,7 @@ public class RrdNioBackendFactory extends RrdFileBackendFactory {
      * @throws IOException Thrown in case of I/O error.
      */
     protected RrdBackend open(String path, boolean readOnly) throws IOException {
+        LOG.debug("Openning file '{}' as {}", path, readOnly ? "read-only" : "read-write");
         // Instantiate a thread pool if none was provided
         if(syncThreadPool == null)
             syncThreadPool = DefaultSyncThreadPool.INSTANCE;

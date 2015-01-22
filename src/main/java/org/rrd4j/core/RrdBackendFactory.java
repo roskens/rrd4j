@@ -90,6 +90,7 @@ public abstract class RrdBackendFactory {
             return factory;
         }
         else {
+            LOG.error("No backend factory found with the name specified [{}]", name);
             throw new IllegalArgumentException("No backend factory found with the name specified [" + name + "]");
         }
     }
@@ -103,8 +104,10 @@ public abstract class RrdBackendFactory {
         String name = factory.getName();
         if (!factories.containsKey(name)) {
             factories.put(name, factory);
+            LOG.debug("Registered new RrdBackendFactory '{}'", name);
         }
         else {
+            LOG.error("Backend factory '{}' cannot be registered twice", name);
             throw new IllegalArgumentException("Backend factory '" + name + "' cannot be registered twice");
         }
     }
@@ -143,8 +146,11 @@ public abstract class RrdBackendFactory {
         // We will allow this only if no RRDs are created
         if (!RrdBackend.isInstanceCreated()) {
             defaultFactory = getFactory(factoryName);
+            LOG.debug("Default RrdBackendFactory set to '{}'", defaultFactory.getName());
         }
         else {
+            LOG.error("Could not change the default backend factory. " +
+                    "This method must be called before the first RRD gets created");
             throw new IllegalStateException("Could not change the default backend factory. " +
                     "This method must be called before the first RRD gets created");
         }

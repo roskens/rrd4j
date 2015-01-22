@@ -52,22 +52,29 @@ public class DsDef {
      */
     public DsDef(String dsName, DsType dsType, long heartbeat, double minValue, double maxValue) {
         if (dsName == null) {
+            LOG.error("Null datasource name specified");
             throw new IllegalArgumentException("Null datasource name specified");
         }
         if (dsName.length() == 0) {
+            LOG.error("Datasource name length equal to zero");
             throw new IllegalArgumentException("Datasource name length equal to zero");
         }
         if (dsName.length() > RrdPrimitive.STRING_LENGTH) {
+            LOG.error("Datasource name [{}] to long {} chars found, only {} allowed",
+                    dsName, dsName.length(), RrdPrimitive.STRING_LENGTH);
             throw new IllegalArgumentException("Datasource name [" + dsName + "] to long (" +
                     dsName.length() + " chars found, only " + RrdPrimitive.STRING_LENGTH + " allowed");
         }
         if (dsType == null) {
+            LOG.error("Null datasource type specified");
             throw new IllegalArgumentException("Null datasource type specified");
         }
         if (heartbeat <= 0) {
+            LOG.error("Invalid heartbeat, must be positive: ", heartbeat);
             throw new IllegalArgumentException("Invalid heartbeat, must be positive: " + heartbeat);
         }
         if (!Double.isNaN(minValue) && !Double.isNaN(maxValue) && minValue >= maxValue) {
+            LOG.error("Invalid min/max values specified: {}/{}", minValue, maxValue);
             throw new IllegalArgumentException("Invalid min/max values specified: " +
                     minValue + "/" + maxValue);
         }

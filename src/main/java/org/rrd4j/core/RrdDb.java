@@ -244,6 +244,17 @@ public class RrdDb implements RrdUpdater {
      * @param path Path to existing RRD.
      * @throws IOException Thrown in case of I/O error.
      */
+    public RrdDb(File file) throws IOException {
+        this(file.getCanonicalPath(), false);
+    }
+
+    /**
+     * <p>Constructor used to open already existing RRD in R/W mode, with a default storage
+     * (backend) type (file on the disk).
+     *
+     * @param path Path to existing RRD.
+     * @throws IOException Thrown in case of I/O error.
+     */
     public RrdDb(String path) throws IOException {
         this(path, false);
     }

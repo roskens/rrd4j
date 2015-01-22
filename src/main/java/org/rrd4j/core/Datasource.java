@@ -286,14 +286,17 @@ public class Datasource implements RrdUpdater {
      */
     public void copyStateTo(RrdUpdater other) throws IOException {
         if (!(other instanceof Datasource)) {
+            LOG.error("Cannot copy Datasource object to {}", other.getClass().getName());
             throw new IllegalArgumentException(
                     "Cannot copy Datasource object to " + other.getClass().getName());
         }
         Datasource datasource = (Datasource) other;
         if (!datasource.dsName.get().equals(dsName.get())) {
+            LOG.error("Incompatible datasource names");
             throw new IllegalArgumentException("Incompatible datasource names");
         }
         if (!datasource.dsType.get().equals(dsType.get())) {
+            LOG.error("Incompatible datasource types");
             throw new IllegalArgumentException("Incompatible datasource types");
         }
         datasource.lastValue.set(lastValue.get());
@@ -325,6 +328,7 @@ public class Datasource implements RrdUpdater {
      */
     public void setHeartbeat(long heartbeat) throws IOException {
         if (heartbeat < 1L) {
+            LOG.error("Invalid heartbeat specified: {} ", heartbeat);
             throw new IllegalArgumentException("Invalid heartbeat specified: " + heartbeat);
         }
         this.heartbeat.set(heartbeat);
@@ -338,9 +342,11 @@ public class Datasource implements RrdUpdater {
      */
     public void setDsName(String newDsName) throws IOException {
         if (newDsName != null && newDsName.length() > RrdString.STRING_LENGTH) {
+            LOG.error("Invalid datasource name specified: {}", newDsName);
             throw new IllegalArgumentException("Invalid datasource name specified: " + newDsName);
         }
         if (parentDb.containsDs(newDsName)) {
+            LOG.error("Datasource already defined in this RRD: {}", newDsName);
             throw new IllegalArgumentException("Datasource already defined in this RRD: " + newDsName);
         }
 
@@ -376,6 +382,7 @@ public class Datasource implements RrdUpdater {
     public void setMinValue(double minValue, boolean filterArchivedValues) throws IOException {
         double maxValue = this.maxValue.get();
         if (!Double.isNaN(minValue) && !Double.isNaN(maxValue) && minValue >= maxValue) {
+            LOG.error("Invalid min/max values: {}/{}", minValue, maxValue);
             throw new IllegalArgumentException("Invalid min/max values: " + minValue + "/" + maxValue);
         }
 
@@ -404,6 +411,7 @@ public class Datasource implements RrdUpdater {
     public void setMaxValue(double maxValue, boolean filterArchivedValues) throws IOException {
         double minValue = this.minValue.get();
         if (!Double.isNaN(minValue) && !Double.isNaN(maxValue) && minValue >= maxValue) {
+            LOG.error("Invalid min/max values: {}/{}", minValue, maxValue);
             throw new IllegalArgumentException("Invalid min/max values: " + minValue + "/" + maxValue);
         }
 
@@ -433,6 +441,7 @@ public class Datasource implements RrdUpdater {
      */
     public void setMinMaxValue(double minValue, double maxValue, boolean filterArchivedValues) throws IOException {
         if (!Double.isNaN(minValue) && !Double.isNaN(maxValue) && minValue >= maxValue) {
+            LOG.error("Invalid min/max values: {}/{}", minValue, maxValue);
             throw new IllegalArgumentException("Invalid min/max values: " + minValue + "/" + maxValue);
         }
         this.minValue.set(minValue);

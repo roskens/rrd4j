@@ -356,14 +356,17 @@ public class Archive implements RrdUpdater {
      */
     public void copyStateTo(RrdUpdater other) throws IOException {
         if (!(other instanceof Archive)) {
+            LOG.error("Cannot copy Archive object to {}", other.getClass().getName());
             throw new IllegalArgumentException(
                     "Cannot copy Archive object to " + other.getClass().getName());
         }
         Archive arc = (Archive) other;
         if (!arc.consolFun.get().equals(consolFun.get())) {
+            LOG.error("Incompatible consolidation functions");
             throw new IllegalArgumentException("Incompatible consolidation functions");
         }
         if (arc.steps.get() != steps.get()) {
+            LOG.error("Incompatible number of steps");
             throw new IllegalArgumentException("Incompatible number of steps");
         }
         int count = parentDb.getHeader().getDsCount();
@@ -384,6 +387,7 @@ public class Archive implements RrdUpdater {
      */
     public void setXff(double xff) throws IOException {
         if (xff < 0D || xff >= 1D) {
+            LOG.error("Invalid xff supplied ({}), must be >= 0 and < 1", xff);
             throw new IllegalArgumentException("Invalid xff supplied (" + xff + "), must be >= 0 and < 1");
         }
         this.xff.set(xff);
