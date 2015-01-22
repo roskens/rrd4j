@@ -573,6 +573,7 @@ public class Util {
             factory.setValidating(false);
             factory.setNamespaceAware(false);
             try {
+                factory.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
                 DocumentBuilder builder = factory.newDocumentBuilder();
                 Document doc = builder.parse(inputSource);
                 return doc.getDocumentElement();
